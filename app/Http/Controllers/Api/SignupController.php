@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 
 class SignupController extends Controller
 {
-    // USER SIGNUP
+     // USER SIGNUP
     /**
      * Create new user
      * @return json
