@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\SignupController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -27,8 +28,14 @@ Route::group(['namespace' => 'Api'], function () {
      */
     Route::group(['prefix' => 'user'], function () {
 
-    //Register a User
+        //Register a User
         Route::post('sign-up', [SignupController::class, 'create']);
+
+        //User Login
+        Route::post('login', [AuthController::class, 'login']);
     });
+
+    
+
     //---------
 });
