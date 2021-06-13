@@ -18,15 +18,12 @@ class SignupController extends Controller
     public function create(SignupRequest $request)
     {
         $data = $request->only(['first_name', 'last_name', 'email', 'phone', 'password']);
-        $data['password'] = Hash::make('password');
-
+        $data['password'] = Hash::make($request->password);
         // Try user save or catch error if any
         try{
             User::create($data);
-            
-            //call created response from default Controller
+        //call created response from default Controller
             return $this->created("Registered Successfully");
-
         } catch (\Exception $e) {
             return $this->severerror($e->getMessage());
         }

@@ -1,0 +1,227 @@
+{
+	"info": {
+		"_postman_id": "ca61590a-0b10-4bc7-b13c-7732b8adf998",
+		"name": "Patricia Backend Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"chrischrisdavid3271@gmail.com\",\r\n    \"password\": \"chrs\"\r\n\r\n\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/user/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Signup",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"chris\",\r\n    \"last_name\": \"david\",\r\n    \"email\": \"dachrisdavid3271@gmail.com\",\r\n    \"phone\": \"07035303935\",\r\n    \"password\": \"12345\",\r\n    \"confirm_password\": \"12345\"\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/user/sign-up",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"sign-up"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "User_detail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 3\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/user/user/get/3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"user",
+								"get",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete_User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/user/user/delete/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"user",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update_user",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMWQwOWVlMjM2ZjQ1MzlhMDM0NzVhYzJlMzI5MDhhZDcyM2U4ZGQ0OTk2Mjg5YjJiMzk5N2VhYmVjOGQ3MjZiYTU1YzUzNWNlNDBmYmNjYTAiLCJpYXQiOjE2MjM1NjExNjQuMzMwNTg1LCJuYmYiOjE2MjM1NjExNjQuMzMwNTk0LCJleHAiOjE2NTUwOTcxNjMuMTEzNTc3LCJzdWIiOiI4Iiwic2NvcGVzIjpbXX0.blM_6sFKD_nSZm9plpXPXouaHsTaRyTe9hFdJTSG6R0vFZ7ietzWTVbZIxktzFyOeBptbSEVbieu2VqyNYQjO9xslL-Dhe3DF8LCOVNdUvA7UckbMR6BjdcJn5U7vo0PZKqGP_ggBN6b48THLcdQ5zDUl7oY58PsmnNMoE12eH2ZonojFfiaHWp7HoZk3gazE-AU4yksWnnQWm9qmP6GLFxGwn__eYk0AizOJs8ndguoWQZ4UYfYuo2yd90Zze9SQ1U4wRIyDZBBsFFuta-Ei91A1L54tPyK1ks8C_Ga5tTcQK_c-JCefwX9oVxvKirshV1uNwLlQ5FAcnl7LuBemollPy_SZLndLH64I134BPtmR_K8UpGUoTm43SGVamZAtrdRmBzXTW6QsCOxEdywtGf3A9OcU9g3oVoYNsaSbiTIln0Day5LciHvRC37Wa8fj7U6cXtEPVUjuQojW9J-2jRTpr9TBNTFcYVXoatHnE2RVt-k_wCWU9xz8BlskpD_NzxoYoMUS4pIigmMPhZ3RcT08Ttnz8XEQG0HzWjE0muipgw0STZXMo_NuXu0EzzhzRMNK2dh6gKbhsuzGO-y_MHV9VBsHh0q5NcwERP5ffs7_ekhu6q230dQ89SOD79GAZuKNVrSZB0bfYR3cPDjeyRrJIaQ6sX9H1Ny53l0xKk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 8,\r\n    \"first_name\": \"dave\",\r\n    \"last_name\": \"david\",\r\n    \"email\": \"hen@gmail.com\",\r\n    \"phone\": \"07045262025\",\r\n    \"password\": \"12345\",\r\n    \"confirm_password\": \"12345\"\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/user/update/8",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"update",
+								"8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

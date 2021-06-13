@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\SignupController;
+use App\Http\Controllers\Api\userController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -33,9 +34,21 @@ Route::group(['namespace' => 'Api'], function () {
 
         //User Login
         Route::post('login', [AuthController::class, 'login']);
+
+        Route::group(['middleware' => 'auth:api'], function () {
+
+            //Fetch User details by ID
+            Route::get('show/{id}', [userController::class, 'show']);
+
+            //Delete User
+            Route::delete('delete/{id}', [userController::class, 'delete']);
+
+            //Update User
+            Route::put('update/{id}', [userController::class, 'update']);
+        });
     });
 
-    
+
 
     //---------
 });

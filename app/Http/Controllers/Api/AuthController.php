@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
-use Illuminate\Http\Request;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
@@ -19,15 +18,18 @@ class AuthController extends Controller
     {
         //required login credential
         $credentials = $request->only(['email', 'password']);
-        //return $credentials;
+
         // Attempt login or catch error if any
         try {
             if (Auth::attempt($credentials)) {
                 /** @var User $user */
                 $user = Auth::User();
                 $token = $user->createToken('User Access Token')->accessToken;
+
                 //call Success response from default Controller
-                return $token;
+                return $this->success(['user' => $user, 'access_token' => $token, 'authorization' => 'Bearer']);
+            } else {
+                return $this->badrequest("Invalid login details");
             }
         } catch (\Exception $e) {
             return $this->severerror($e->getMessage());
